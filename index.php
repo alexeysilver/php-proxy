@@ -5,7 +5,7 @@ set_time_limit(2); // 2 second for everything
 
 session_start();
 
-$base_http_host = 'nicerdicer.in.ua';  //set this to the url you want to scrape
+$base_http_host = 'google.com';  //set this to the url you want to scrape
 $base = 'http://' . $base_http_host;
 
 $url = $base . $_SERVER['REQUEST_URI'];
