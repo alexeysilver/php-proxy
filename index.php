@@ -51,7 +51,7 @@ list($header, $body) = explode("\r\n\r\n", str_replace("HTTP/1.1 100 Continue\r\
 $header = split(chr(10),$header);
 foreach($header as $key=>$value){
 	
-	if(preg_match("~^transfer-encoding~i",$value) continue;
+	if(preg_match("~^transfer-encoding~i",$value)) continue;
 	$value = trim(str_replace(array($base, $base_http_host), array($mydomain,$_SERVER['HTTP_HOST']), $value));
 	header($value);
 
