@@ -6,6 +6,7 @@ set_time_limit(2); // 2 second for everything
 session_start();
 
 $hidden_mode = false;
+$cache = false;
 
 $base_http_host = 'google.com';  //set this to the url you want to scrape
 $base = 'http://' . $base_http_host;
@@ -19,7 +20,16 @@ if(preg_match('~\.(jpg|jpeg|gif|png|bmp|js|css|txt|jar|tgz|rar|zip|gz)$~i', $_SE
   header("Location: ".$url);
   exit;
 }
+/*
+if(preg_match('~\.(jpg|jpeg|gif|png|bmp|js|css|txt|jar|tgz|rar|zip|gz)$~i', $_SERVER['REQUEST_URI']) && $cache == true)// If you whant to hide orign host, better delete next code
+{
+  if(file_exists('./tmp/'.md5($url))) {
+  	readfile('./tmp/'.md5($url));
+  	exit;
+  }
 
+}
+*/
 if($_SERVER['HTTPS'] == 'on') exit; // no https pls. Hate it
 
 $curl = curl_init();
